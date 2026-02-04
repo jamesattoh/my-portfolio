@@ -50,28 +50,40 @@
   });
 
   function php_email_form_submit(thisForm, action, formData) {
+    var isFormspree = action.indexOf('formspree.io') !== -1;
+    var headers = {'X-Requested-With': 'XMLHttpRequest'};
+    if (isFormspree) headers['Accept'] = 'application/json';
+
     fetch(action, {
       method: 'POST',
       body: formData,
-      headers: {'X-Requested-With': 'XMLHttpRequest'}
+      headers: headers
     })
-    .then(response => {
-      if( response.ok ) {
-        return response.text();
-      } else {
-        throw new Error(`${response.status} ${response.statusText} ${response.url}`); 
+    .then(function(response) {
+      if (response.ok) {
+        return isFormspree ? response.json() : response.text();
       }
+      if (isFormspree) {
+        return response.json().then(function(err) {
+          throw new Error(err.error || response.status + ' ' + response.statusText);
+        }).catch(function(e) {
+          if (e.message) throw e;
+          throw new Error(response.status + ' ' + response.statusText);
+        });
+      }
+      throw new Error(response.status + ' ' + response.statusText + ' ' + response.url);
     })
-    .then(data => {
+    .then(function(data) {
       thisForm.querySelector('.loading').classList.remove('d-block');
-      if (data.trim() == 'OK') {
+      var success = (typeof data === 'string' && data.trim() === 'OK') || (data && data.ok === true);
+      if (success) {
         thisForm.querySelector('.sent-message').classList.add('d-block');
-        thisForm.reset(); 
+        thisForm.reset();
       } else {
-        throw new Error(data ? data : 'Form submission failed and no error message returned from: ' + action); 
+        throw new Error(data && data.error ? data.error : (typeof data === 'string' ? data : 'Form submission failed.'));
       }
     })
-    .catch((error) => {
+    .catch(function(error) {
       displayError(thisForm, error);
     });
   }

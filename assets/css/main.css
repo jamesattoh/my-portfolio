@@ -168,6 +168,16 @@ h6 {
   color: var(--heading-color);
 }
 
+/* Logo texte "LeFlapacha." : blanc et souligné */
+.header .logo .logo-text {
+  color: #fff;
+  text-decoration: underline;
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
 .header .header-social-links {
   padding-right: 15px;
 }
@@ -2789,6 +2799,36 @@ section,
   margin-bottom: 0;
 }
 
+.contact .contact-social-links {
+  margin-top: 1.75rem ;
+  margin-left: -4.45rem;
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.contact .contact-social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  color: var(--contrast-color);
+  background-color: color-mix(in srgb, var(--contrast-color), transparent 85%);
+  transition: 0.3s;
+}
+
+.contact .contact-social-links a:hover {
+  background-color: var(--accent-color);
+  color: var(--contrast-color);
+  transform: translateY(-2px);
+}
+
+.contact .contact-social-links a i {
+  font-size: 1.15rem;
+}
+
 .contact .contact-form {
   background-color: var(--surface-color);
   padding: 3rem;
@@ -2840,22 +2880,32 @@ section,
 }
 
 .contact .contact-form .btn {
-  background-color: color-mix(in srgb, var(--surface-color), transparent 80%);
-  color: var(--contrast-color);
-  padding: 1rem 2rem;
-  border-radius: 2rem;
+  font-weight: 600;
+  padding: 12px 30px;
+  border-radius: 50px;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   transition: 0.3s;
+  border: 2px solid;
+}
+
+/* Même rendu que "Mes réalisations" : bleu template, texte blanc */
+.contact .contact-form .btn.btn-primary {
+  background: var(--accent-color);
+  color: var(--contrast-color);
+  border-color: var(--accent-color);
+}
+
+.contact .contact-form .btn.btn-primary:hover {
+  background: color-mix(in srgb, var(--accent-color), black 15%);
+  border-color: color-mix(in srgb, var(--accent-color), black 15%);
+  color: var(--contrast-color);
+  transform: translateY(-2px);
 }
 
 .contact .contact-form .btn i {
   font-size: 1.25rem;
-}
-
-.contact .contact-form .btn:hover {
-  background-color: color-mix(in srgb, var(--surface-color), transparent 70%);
 }
 
 /*--------------------------------------------------------------

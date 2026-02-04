@@ -86,7 +86,7 @@
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Contact</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam</p>
+        <p>Besoin de mes services ? N'hésitez pas à m'envoyer un message en remplissant le formulaire ci-dessous. Je vous réponds dans les meilleurs délais.</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -94,17 +94,16 @@
         <div class="row g-4 g-lg-5">
           <div class="col-lg-5">
             <div class="info-box" data-aos="fade-up" data-aos-delay="200">
-              <h3>Contact Info</h3>
-              <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ante ipsum primis.</p>
+              <h3>Coordonnées</h3>
+              <p>Vous pouvez me joindre directement via le formulaire ou directement via les informations ci-dessous :</p>
 
               <div class="info-item" data-aos="fade-up" data-aos-delay="300">
                 <div class="icon-box">
                   <i class="bi bi-geo-alt"></i>
                 </div>
                 <div class="content">
-                  <h4>Our Location</h4>
-                  <p>A108 Adam Street</p>
-                  <p>New York, NY 535022</p>
+                  <h4>Adresse</h4>
+                  <p>Cotonou - Bénin</p>
                 </div>
               </div>
 
@@ -113,9 +112,10 @@
                   <i class="bi bi-telephone"></i>
                 </div>
                 <div class="content">
-                  <h4>Phone Number</h4>
-                  <p>+1 5589 55488 55</p>
-                  <p>+1 6678 254445 41</p>
+                  <h4>Téléphones & WhatsApp</h4>
+                  <p>+229 0155 9051 58</p>
+                  <p>+229 0191 5534 74</p>
+                  <p>+229 0140 8578 95</p>
                 </div>
               </div>
 
@@ -124,9 +124,12 @@
                   <i class="bi bi-envelope"></i>
                 </div>
                 <div class="content">
-                  <h4>Email Address</h4>
-                  <p>info@example.com</p>
-                  <p>contact@example.com</p>
+                  <h4>Email</h4>
+                  <p>deogratiasattoh@gmail.com</p>
+                  <div class="contact-social-links">
+                    <a href="https://www.linkedin.com/in/deogratias-attoh" target="_blank" rel="noopener noreferrer" class="linkedin" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                    <a href="https://github.com/jamesattoh" target="_blank" rel="noopener noreferrer" class="github" title="GitHub"><i class="bi bi-github"></i></a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -134,22 +137,23 @@
 
           <div class="col-lg-7">
             <div class="contact-form" data-aos="fade-up" data-aos-delay="300">
-              <h3>Get In Touch</h3>
-              <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ante ipsum primis.</p>
+              <h3>Je vous écoute</h3>
+              <p></p>
 
-              <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+              <!-- GitHub Pages : pas de PHP. Utilisez Formspree (formspree.io) : créez un formulaire, réception = deogratiasattoh@gmail.com, puis remplacez YOUR_FORM_ID par l’ID reçu. -->
+              <form action="https://formspree.io/f/YOUR_FORM_ID" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
                 <div class="row gy-4">
 
                   <div class="col-md-6">
-                    <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+                    <input type="text" name="name" class="form-control" placeholder="Nom & Prénom.s" required="">
                   </div>
 
                   <div class="col-md-6 ">
-                    <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+                    <input type="email" class="form-control" name="email" placeholder="Email" required="">
                   </div>
 
                   <div class="col-12">
-                    <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+                    <input type="tel" class="form-control" name="phone" placeholder="Téléphone" required="">
                   </div>
 
                   <div class="col-12">
@@ -157,11 +161,11 @@
                   </div>
 
                   <div class="col-12 text-center">
-                    <div class="loading">Loading</div>
+                    <div class="loading">Envoi en cours...</div>
                     <div class="error-message"></div>
-                    <div class="sent-message">Your message has been sent. Thank you!</div>
+                    <div class="sent-message">Votre message a bien été envoyé. Merci !</div>
 
-                    <button type="submit" class="btn">Send Message</button>
+                    <button type="submit" class="btn btn-primary">Envoyer le message</button>
                   </div>
 
                 </div>
