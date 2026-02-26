@@ -121,6 +121,33 @@
   }
 
   /**
+   * Animate tech skill percent rings on reveal (au chargement / scroll)
+   */
+  function initTechSkillPercent() {
+    document.querySelectorAll('.tech-card-icon[data-skill-percent]').forEach((el) => {
+      const pct = parseInt(el.getAttribute('data-skill-percent'), 10) || 0;
+      el.style.setProperty('--skill-percent', '0');
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          el.style.setProperty('--skill-percent', String(pct));
+        });
+      });
+    });
+  }
+
+  const technicalSkillsSection = document.querySelector('.technical-skills');
+  if (technicalSkillsSection) {
+    new Waypoint({
+      element: technicalSkillsSection,
+      offset: '80%',
+      handler: function() {
+        initTechSkillPercent();
+        this.destroy();
+      }
+    });
+  }
+
+  /**
    * Animate the skills items on reveal
    */
   let skillsAnimation = document.querySelectorAll('.skills-animation');
@@ -199,6 +226,13 @@
    */
   const glightbox = GLightbox({
     selector: '.glightbox'
+  });
+
+  /**
+   * Année courante dynamique dans le footer
+   */
+  document.querySelectorAll('.copyright-year').forEach(function(el) {
+    el.textContent = new Date().getFullYear();
   });
 
 })();

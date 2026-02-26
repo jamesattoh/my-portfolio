@@ -2909,8 +2909,215 @@ section,
 }
 
 /*--------------------------------------------------------------
-# Starter Section Section
+# Technical Skills (Resume)
 --------------------------------------------------------------*/
-.starter-section {
-  /* Add your styles here */
+
+.download-cv-actions .btn {
+  margin-top: 2rem;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
+
+.download-cv-actions .btn.btn-primary {
+  background: var(--accent-color);
+  color: var(--contrast-color);
+  border-color: var(--accent-color);
+}
+
+.download-cv-actions .btn.btn-primary:hover {
+  background: color-mix(in srgb, var(--accent-color), black 15%);
+  border-color: color-mix(in srgb, var(--accent-color), black 15%);
+  transform: translateY(-2px);
+}
+
+.technical-skills {
+  padding: 60px 0 0;
+}
+
+.technical-skills-header .technical-skills-title {
+  color: var(--contrast-color);
+  margin-bottom: 0.75rem;
+}
+
+.technical-skills-header .technical-skills-subtitle {
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 0.95rem;
+  color: color-mix(in srgb, var(--default-color), transparent 35%);
+}
+
+.technical-skills-group {
+  margin-bottom: 2.5rem;
+}
+
+.technical-skills-group-title {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-color);
+  margin-bottom: 1.5rem;
+}
+
+.technical-skills .tech-card {
+  padding: 24px;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--surface-color), var(--accent-color) 2%);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 88%);
+  height: 100%;
+  transition: 0.3s ease-in-out;
+  text-align: center;
+}
+
+.technical-skills .tech-card h4 {
+  margin-top: 1rem;
+  margin-bottom: 0.4rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--contrast-color);
+}
+
+.technical-skills .tech-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  text-align: center;
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+}
+
+.technical-skills .tech-card:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--accent-color), transparent 60%);
+  box-shadow: 0 10px 30px color-mix(in srgb, var(--default-color), transparent 92%);
+}
+
+@property --skill-percent {
+  syntax: "<number>";
+  initial-value: 0;
+  inherits: true;
+}
+
+.tech-card-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  margin: 0 auto 2rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--contrast-color);
+  background-color: color-mix(in srgb, var(--surface-color), transparent 20%);
+  overflow: visible;
+  --skill-percent: 0;
+}
+
+.tech-card-icon::before {
+  content: "";
+  position: absolute;
+  inset: -15px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--accent-color) 35%, var(--surface-color));
+  -webkit-mask: radial-gradient(circle, transparent 65%, black 65%);
+  mask: radial-gradient(circle, transparent 65%, black 65%);
+  z-index: 0;
+  box-sizing: border-box;
+}
+
+.tech-card-icon::after {
+  content: "";
+  position: absolute;
+  inset: -15px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from -90deg,
+    var(--accent-color) 0deg calc(var(--skill-percent) * 3.6deg),
+    transparent calc(var(--skill-percent) * 3.6deg)
+  );
+  -webkit-mask: radial-gradient(circle, transparent 65%, black 65%);
+  mask: radial-gradient(circle, transparent 65%, black 65%);
+  z-index: 0;
+  box-sizing: border-box;
+  transition: --skill-percent 2s ease-out;
+}
+
+.tech-card-icon span {
+  position: relative;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.tech-card-icon img {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  z-index: 1;
+}
+
+.technical-skills-separator {
+  border-color: color-mix(in srgb, var(--default-color), transparent 80%);
+  margin: 2.5rem 0;
+}
+
+.technical-tools-strip {
+  position: relative;
+  overflow: hidden;
+  margin-top: 2rem;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  padding: 4rem calc(50vw - 50%);
+}
+
+.technical-tools-strip.dark-background {
+  background-color: #0b1419;
+  --default-color: #ffffff;
+  --heading-color: #ffffff;
+  --contrast-color: #ffffff;
+}
+
+.technical-tools-strip.dark-background .technical-tool-item span {
+  color: var(--contrast-color);
+}
+
+.technical-tools-track {
+  display: flex;
+  gap: 2rem;
+  white-space: nowrap;
+  animation: tools-marquee 40s linear infinite;
+  width: max-content;
+}
+
+.technical-tool-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 80px;
+  flex-shrink: 0;
+}
+
+.technical-tool-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.technical-tool-item span {
+  font-size: 0.85rem;
+  color: var(--contrast-color);
+  opacity: 0.9;
+  white-space: nowrap;
+}
+
+@keyframes tools-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/*--------------------------------------------------------------
