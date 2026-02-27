@@ -228,6 +228,13 @@
     selector: '.glightbox'
   });
 
+  GLightbox({
+    selector: '.glightbox-video',
+    touchNavigation: true,
+    loop: true,
+    autoplayVideos: true
+  });
+
   /**
    * Année courante dynamique dans le footer
    */
