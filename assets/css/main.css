@@ -664,7 +664,7 @@ section,
 .section {
   color: var(--default-color);
   background-color: var(--background-color);
-  padding: 60px 0;
+  padding: 25px 0;
   scroll-margin-top: 100px;
   overflow: clip;
 }
@@ -713,6 +713,10 @@ section,
 /* Section title avec paragraphe plus large (ex. témoignages about) */
 .section-title--wide p {
   max-width: 72rem;
+}
+
+.skills .section-title {
+  padding-bottom: 0.1rem;
 }
 
 /*--------------------------------------------------------------
@@ -1149,7 +1153,7 @@ section,
 }
 
 .about .personal-quote {
-  padding: 24px 0;
+  padding: 8px 0 2px;
 }
 
 .about .personal-quote p {
@@ -1177,6 +1181,13 @@ section,
 
 .about .fact-pill i {
   color: var(--accent-color);
+}
+
+.monsvg {
+  fill: var(--accent-color);
+  width: 0.75rem;
+  height: 1.5rem;
+  display: block;
 }
 
 .about .fact-pill span {
@@ -1255,6 +1266,10 @@ section,
 /*--------------------------------------------------------------
 # Stats Section
 --------------------------------------------------------------*/
+.stats {
+  margin-bottom: 40px;
+}
+
 .stats .avatars {
   position: relative;
 }
@@ -1349,6 +1364,12 @@ section,
   border-radius: 50%;
   border: 4px solid var(--background-color);
   margin: 0 auto;
+}
+
+@media (max-width: 991.98px) {
+  .testimonials .testimonial-item .testimonial-img {
+    max-width: 96px;
+  }
 }
 
 .testimonials .testimonial-item h3 {
@@ -2981,19 +3002,7 @@ section,
 }
 
 .technical-skills {
-  padding: 60px 0 0;
-}
-
-.technical-skills-header .technical-skills-title {
-  color: var(--contrast-color);
-  margin-bottom: 0.75rem;
-}
-
-.technical-skills-header .technical-skills-subtitle {
-  max-width: 720px;
-  margin: 0 auto;
-  font-size: 0.95rem;
-  color: color-mix(in srgb, var(--default-color), transparent 35%);
+  padding: 40px 0 0;
 }
 
 .technical-skills-group {
