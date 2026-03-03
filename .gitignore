@@ -33,7 +33,7 @@ Desktop.ini
 .env.*.local
 config.local.*
 
-# Node modules (si vous ajoutez des dépendances plus tard)
+# Node modules (si des dépendances sont ajoutées plus tard)
 node_modules/
 npm-debug.log*
 yarn-debug.log*
@@ -41,11 +41,10 @@ yarn-error.log*
 package-lock.json
 yarn.lock
 
-# Fichiers de build (si vous utilisez un build tool)
+# Fichiers de build (si un build tool est utilisé)
 dist/
 build/
-*.min.js
-*.min.css
+
 
 # Fichiers de test
 coverage/
