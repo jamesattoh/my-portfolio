@@ -78,13 +78,24 @@
           headers: { Accept: "application/json" },
         });
 
+        const dataJson = await response.json().catch(function () { return {}; });
+
         if (response.ok) {
           status.textContent = "Votre message a bien été envoyé. Merci !";
           status.className = "mt-3 text-success";
           form.reset();
         } else {
-          status.textContent =
-            "Une erreur est survenue. Veuillez réessayer dans quelques instants.";
+          // Message selon le code Formspree (422 = non confirmé ou validation)
+          if (response.status === 422) {
+            if (dataJson.errors && dataJson.errors.length) {
+              status.textContent = dataJson.errors.map(function (e) { return e.message; }).join(" ") || "Vérifiez les champs du formulaire.";
+            } else {
+              status.textContent = "Formulaire Formspree non activé : vérifiez l’email de confirmation envoyé par Formspree, ou recréez un formulaire sur formspree.io.";
+            }
+          } else {
+            status.textContent =
+              "Une erreur est survenue (code " + response.status + "). Vérifiez l’ID du formulaire sur formspree.io ou réessayez plus tard.";
+          }
           status.className = "mt-3 text-danger";
         }
       } catch (error) {
@@ -115,23 +126,6 @@
           <li><a href="resume.html">Mon CV</a></li>
           <li><a href="services.html">Mes services</a></li>
           <li><a href="portfolio.html">Mes réalisations</a></li>
-          <!-- <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="#">Dropdown 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li><a href="#">Deep Dropdown 1</a></li>
-                  <li><a href="#">Deep Dropdown 2</a></li>
-                  <li><a href="#">Deep Dropdown 3</a></li>
-                  <li><a href="#">Deep Dropdown 4</a></li>
-                  <li><a href="#">Deep Dropdown 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Dropdown 2</a></li>
-              <li><a href="#">Dropdown 3</a></li>
-              <li><a href="#">Dropdown 4</a></li>
-            </ul>
-          </li> -->
           <li><a href="contact.html" class="active">Contactez-moi</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -210,7 +204,6 @@
               <h3>Je vous écoute</h3>
               <p></p>
 
-              <!-- GitHub Pages : pas de PHP. Utilisez Formspree (formspree.io) : créez un formulaire, réception = deogratiasattoh@gmail.com, puis remplacez YOUR_FORM_ID par l’ID reçu. -->
               <form id="contact-form" action="https://formspree.io/f/xqedreqy" method="POST" data-aos="fade-up" data-aos-delay="200">
                 <div class="row gy-4">
 
@@ -262,10 +255,6 @@
         <a href="https://www.linkedin.com/in/deogratias-attoh"><i class="bi bi-linkedin"></i></a>
       </div>
       <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
         Designed by <a href="index.html">Déo Gratias ATTOH</a>
       </div>
     </div>
