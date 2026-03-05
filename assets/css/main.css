@@ -172,14 +172,60 @@ h6 {
   color: var(--heading-color);
 }
 
-/* Logo texte "Déo Gratias ATTOH" : blanc et souligné */
+/* Logo texte "Déo Gratias ATTOH" */
 .header .logo .logo-text {
   color: #fff;
-  /* text-decoration: underline; */
   font-size: 1.75rem;
   font-weight: 600;
   margin: 0;
   letter-spacing: -0.5px;
+  position: relative;
+  display: inline-block;
+  padding: 0.4em 0.4em 0.4em 0.4em;
+}
+
+.header .logo .logo-text::before,
+.header .logo .logo-text::after {
+  content: "";
+  position: absolute;
+  width: 0.8em;
+  height: 0.8em;
+  border: 2px solid var(--accent-color);
+  pointer-events: none;
+}
+
+.header .logo .logo-text::before {
+  top: 0;
+  left: 0;
+  border-right: none;
+  border-bottom: none;
+}
+
+.header .logo .logo-text::after {
+  right: -0.06em;
+  bottom: 0;
+  border-left: none;
+  border-top: none;
+}
+
+@media (max-width: 425px) {
+  .header .logo .logo-text-last {
+    display: block;
+  }
+
+  .header .logo .logo-text {
+    padding: 0.03em 0.06em 0.03em 0.09em;
+  }
+
+  .header .logo .logo-text::before,
+  .header .logo .logo-text::after {
+    width: 0.7em;
+    height: 0.7em;
+  }
+
+  .header .logo .logo-text::after {
+    right: -0.04em;
+  }
 }
 
 .header .header-social-links {
@@ -1720,6 +1766,7 @@ section,
   .services .service-item {
     flex-direction: column;
     text-align: center;
+    align-items: center;
   }
 
   .services .service-item::before {
